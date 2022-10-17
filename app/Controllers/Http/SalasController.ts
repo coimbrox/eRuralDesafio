@@ -1,4 +1,5 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+import { rules, schema } from '@ioc:Adonis/Core/Validator'
 import Sala from 'App/Models/Sala'
 
 export default class SalasController {
@@ -13,11 +14,19 @@ export default class SalasController {
 
   public async store({ request }: HttpContextContract) {
     try {
-      const createData = request.all()
+      const importVideoSchema = schema.create({
+        title: schema.string(),
+        video: schema.file({
+          size: '8mb',
+          extnames: ['avi', 'mp4', 'mkv'],
+        }),
+      })
 
-      const sala = await Sala.create(createData)
+      // const createData = request.all()
 
-      return sala
+      // const sala = await Sala.create(createData)
+
+      // return sala
     } catch (err) {
       console.log(err)
     }
