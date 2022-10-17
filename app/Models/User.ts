@@ -13,7 +13,7 @@ export default class User extends BaseModel {
   public email: string
 
   @column()
-  public nnumber: number
+  public number: number
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
