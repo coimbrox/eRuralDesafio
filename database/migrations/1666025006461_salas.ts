@@ -13,7 +13,7 @@ export default class extends BaseSchema {
         .inTable('users')
         .onUpdate('CASCADE')
         .onDelete('CASCADE')
-      table.string('titulo').notNullable()
+      table.string('title').notNullable()
       table.string('description')
       table.string('video').notNullable()
 
